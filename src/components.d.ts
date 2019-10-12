@@ -9,6 +9,12 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface CardStack {
+    /**
+    * The collection of cards to render
+    */
+    'cards': any[];
+  }
   interface MyComponent {
     /**
     * The first name
@@ -28,17 +34,30 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLCardStackElement extends Components.CardStack, HTMLStencilElement {}
+  var HTMLCardStackElement: {
+    prototype: HTMLCardStackElement;
+    new (): HTMLCardStackElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'card-stack': HTMLCardStackElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface CardStack {
+    /**
+    * The collection of cards to render
+    */
+    'cards'?: any[];
+  }
   interface MyComponent {
     /**
     * The first name
@@ -55,6 +74,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'card-stack': CardStack;
     'my-component': MyComponent;
   }
 }
@@ -65,6 +85,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'card-stack': LocalJSX.CardStack & JSXBase.HTMLAttributes<HTMLCardStackElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }

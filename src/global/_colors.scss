@@ -1,0 +1,101 @@
+@function convertRGB($color) {
+    @return unquote('#{red($color)}, #{green($color)}, #{blue($color)}');
+}
+
+// Mixes a color with black to create its shade.
+// --------------------------------------------------------------------------------------------
+@function get-color-shade($color) {
+    @return mix(#000, $color, 12%);
+}
+
+// Mixes a color with white to create its tint.
+// --------------------------------------------------------------------------------------------
+@function get-color-tint($color) {
+    @return mix(#fff, $color, 10%);
+}
+
+@mixin createRootColors($colors, $prefix: 'app') {
+
+    @each $name,
+    $color in $colors {
+        $varName: --#{$prefix}-color-#{$name};
+
+        $baseColor: map-get($color, base);
+        $contrastColor: map-get($color, contrast);
+
+        $shadeColor: map-get($color, shade);
+        $tintColor: map-get($color, tint);
+
+        :root {
+            #{$varName}: #{$baseColor};
+            #{$varName}-rgb: convertRGB($baseColor);
+            #{$varName}-contrast: #{$contrastColor};
+            #{$varName}-contrast-rgb: convertRGB($contrastColor);
+
+            #{$varName}-offset: rgba(var(#{$varName}-rgb), 0.1);
+
+            @if ($shadeColor) {
+                #{$varName}-shade: $shadeColor;
+            }
+
+            @else {
+                #{$varName}-shade: get-color-shade($baseColor);
+            }
+
+            @if ($tintColor) {
+                #{$varName}-tint: $tintColor;
+            }
+
+            @else {
+                #{$varName}-tint: get-color-tint($baseColor);
+            }
+        }
+
+        .#{$prefix}-color-#{$name} {
+            color: var(#{$varName});
+        }
+    }
+}
+
+@mixin createHostColorCSS($colors, $prefix: 'app') {
+
+    @each $name,
+    $color in $colors {
+        $varName: --#{$prefix}-color-#{$name};
+
+        $baseColor: map-get($color, base);
+        $contrastColor: map-get($color, contrast);
+
+        $shadeColor: map-get($color, shade);
+        $tintColor: map-get($color, tint);
+
+        :host {
+            #{$varName}: #{$baseColor};
+            #{$varName}-rgb: convertRGB($baseColor);
+            #{$varName}-contrast: #{$contrastColor};
+            #{$varName}-contrast-rgb: convertRGB($contrastColor);
+
+            #{$varName}-offset: rgba(var(#{$varName}-rgb), 0.1);
+
+            @if ($shadeColor) {
+                #{$varName}-shade: $shadeColor;
+            }
+
+            @else {
+                #{$varName}-shade: get-color-shade($baseColor);
+            }
+
+            @if ($tintColor) {
+                #{$varName}-tint: $tintColor;
+            }
+
+            @else {
+                #{$varName}-tint: get-color-tint($baseColor);
+            }
+        }
+
+        .#{$prefix}-color-#{$name} {
+            color: var(#{$varName});
+        }
+    }
+}

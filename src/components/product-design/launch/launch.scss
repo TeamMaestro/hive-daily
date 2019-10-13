@@ -1,0 +1,64 @@
+@import '../../../global/colors';
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+$colors: (
+    'primary': (
+        base: #6E00FF,
+        contrast: #ffffff
+    ),
+    'secondary': (
+        base: #EFF2F7,
+        contrast: #000
+    ),
+    'success': (
+        base: #36B37E,
+        contrast: #ffffff
+    ),
+    'danger': (
+        base: #FF5630,
+        contrast: #ffffff
+    ),
+    'warning': (
+        base: #FFAB02,
+        contrast: #ffffff
+    ),
+    'info': (
+        base: #00B8D9,
+        contrast: #ffffff
+    ),
+    'dark': (
+        base: #273444,
+        contrast: #ffffff
+    ),
+    'white': (
+        base: #ffffff,
+        contrast: #000000
+    ),
+    'black': (
+        base: #000000,
+        contrast: #ffffff
+    ),
+    'light': (
+        base: #F1F5F9,
+        contrast: #ffffff
+    ),
+    'light-gray': (
+        base: #E0E6ED,
+        contrast: #ffffff
+    ),
+    'gray': (
+        base: #8492A7,
+        contrast: #ffffff
+    ),
+    'dark-gray': (
+        base: #3C4858,
+        contrast: #ffffff
+    ),
+);
+
+:host {
+    --primary-font-family: 'Open Sans';
+}
+
+@include createHostColorCSS($colors, 'launch');

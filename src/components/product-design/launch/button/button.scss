@@ -1,0 +1,159 @@
+@import '../../launch/launch';
+
+// Button
+// --------------------------------------------------
+:host {
+    /*
+     * @prop --border-radius: The border radius edge of the button
+     */
+    --border-radius: 0.25rem;
+    --border-color: initial;
+    --background-color: initial;
+    --background-color-hover: var(--launch-color-primary-shade);
+    --color: var(--launch-color-white);
+    --color-hover: var(--launch-color-white);
+    --min-width: 100px;
+    --width: initial;
+    --font-size: 1rem;
+    --font-family: var(--primary-font-family);
+    --text-align: center;
+    --border-color: transparent;
+    --border-width: 1px;
+    --border-style: solid;
+    --font-weight: 600;
+    --padding: 0.75rem 1.75rem;
+    --line-height: 1.5;
+    --text-transform: initial;
+
+    display: inline-flex;
+    width: var(--width);
+
+    --vertical-align: center;
+    --horizontal-align: center;
+
+    button {
+        border-radius: var(--border-radius);
+        line-height: var(--line-height);
+        text-align: var(--text-align);
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        font-family: var(--font-family);
+        text-transform: var(--text-transform);
+        background-color: var(--background-color);
+        border: 1px solid var(--border-color);
+        color: var(--color);
+        transition:
+            opacity .2s,
+            color .2s,
+            background-color .2s;
+        appearance: none;
+        border-color: var(--border-color);
+        border-style: solid;
+        border-width: var(--border-width);
+        min-width: var(--min-width);
+        width: var(--width);
+        padding: var(--padding);
+        align-items: var(--vertical-align);
+        justify-content: var(--horizontal-align);
+        display: inline-flex;
+        cursor: pointer;
+        &[disabled] {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        &:not([disabled]):hover {
+            color: var(--color-hover);
+            background-color: var(--background-color-hover);
+        }
+    }
+
+    ion-spinner {
+        width: 0px;
+        height: 0px;
+        transition: all .2s;
+        &.busy {
+            margin-right: 8px;
+            height: 1rem;
+            width: 1rem;
+        }
+    }
+
+}
+
+// Button: Shape Rounded
+// --------------------------------------------------
+:host([shape="rounded"]) {
+    --border-radius: 0.25rem;
+}
+
+// Button: Shape Square
+// --------------------------------------------------
+:host([shape="square"]) {
+    --border-radius: 0rem;
+}
+
+// Button: Shape Pill
+// --------------------------------------------------
+:host([shape="pill"]) {
+    --border-radius: 9999rem;
+}
+
+// Button: Shape Circle
+// --------------------------------------------------
+:host([shape="circle"]) {
+    --border-radius: 9999rem;
+    --min-width: initial;
+    --padding: 0.5rem!important;
+}
+
+// Button: Small
+// --------------------------------------------------
+:host([sm]) {
+    --font-size: 0.875rem;
+    --padding: 0.5rem 1.25rem;
+}
+
+// Button: Large
+// --------------------------------------------------
+:host([lg]) {
+    --font-size: 1.25rem;
+    --padding: 1rem 1.875rem;
+}
+
+// Button: Extra Large
+// --------------------------------------------------
+:host([xl]) {
+    --font-size: calc(1.275rem + 0.3vw);
+    --padding: 1.5rem 2rem;
+}
+
+// Button: Block
+// --------------------------------------------------
+:host([block]) {
+    --width: 100%;
+    width: var(--width);
+}
+
+// Button: bold
+// --------------------------------------------------
+:host([bold]) {
+    --font-weight: bold;
+}
+
+// Button: Align Left
+// --------------------------------------------------
+:host([align-left]) {
+    --horizontal-align: flex-start;
+}
+
+// Button: Align Center
+// --------------------------------------------------
+:host([align-center]) {
+    --horizontal-align: center;
+}
+
+// Button: Align Right
+// --------------------------------------------------
+:host([align-right]) {
+    --horizontal-align: flex-end;
+}

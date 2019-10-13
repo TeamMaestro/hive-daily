@@ -34,7 +34,7 @@ function loadStories() {
     });
 
     require('../loader/index.cjs.js').defineCustomElements(window);
-    // require('@ionic/core/loader/index.cjs.js').defineCustomElements(window);
+    require('@ionic/core/loader/index.cjs.js').defineCustomElements(window);
 }
 
 configure(loadStories, module);

@@ -6,7 +6,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  Color,
+} from './components/product-design/launch/color';
 
 export namespace Components {
   interface CardStack {
@@ -15,19 +17,62 @@ export namespace Components {
     */
     'cards': any[];
   }
-  interface MyComponent {
+  interface LaunchUiButton {
+    'alignCenter': boolean;
+    'alignLeft': boolean;
+    'alignRight': boolean;
     /**
-    * The first name
+    * Displays the button at full-width.
     */
-    'first': string;
+    'block': boolean;
     /**
-    * The last name
+    * Renders the button with a bold font weight.
     */
-    'last': string;
+    'bold': boolean;
     /**
-    * The middle name
+    * If the button is in a busy active state.
     */
-    'middle': string;
+    'busy': boolean;
+    /**
+    * The color display of the button.
+    */
+    'color': Color;
+    /**
+    * If the button is disabled and cannot be interacted with.
+    */
+    'disabled': boolean;
+    /**
+    * The filled color style for the button. `solid` renders the button with a solid background. `outline` renders the button only as a border. `clear` is a transparent button.
+    */
+    'fill': 'outline' | 'solid' | 'clear';
+    /**
+    * Renders the button large.
+    */
+    'lg': boolean;
+    /**
+    * Renders the button as a text link.
+    */
+    'link': boolean;
+    /**
+    * The rendered shape of the button. `rounded` has a small border radius, `square` has no border radius and `pill` has the maximum border radius.
+    */
+    'shape': 'rounded' | 'square' | 'pill' | 'circle';
+    /**
+    * Renders the button small.
+    */
+    'sm': boolean;
+    /**
+    * Softened color palette of the button.
+    */
+    'soft': boolean;
+    /**
+    * The type of button to render
+    */
+    'type': 'submit' | 'button' | 'reset';
+    /**
+    * Renders the button extra large.
+    */
+    'xl': boolean;
   }
 }
 
@@ -40,14 +85,14 @@ declare global {
     new (): HTMLCardStackElement;
   };
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  interface HTMLLaunchUiButtonElement extends Components.LaunchUiButton, HTMLStencilElement {}
+  var HTMLLaunchUiButtonElement: {
+    prototype: HTMLLaunchUiButtonElement;
+    new (): HTMLLaunchUiButtonElement;
   };
   interface HTMLElementTagNameMap {
     'card-stack': HTMLCardStackElement;
-    'my-component': HTMLMyComponentElement;
+    'launch-ui-button': HTMLLaunchUiButtonElement;
   }
 }
 
@@ -58,24 +103,71 @@ declare namespace LocalJSX {
     */
     'cards'?: any[];
   }
-  interface MyComponent {
+  interface LaunchUiButton {
+    'alignCenter'?: boolean;
+    'alignLeft'?: boolean;
+    'alignRight'?: boolean;
     /**
-    * The first name
+    * Displays the button at full-width.
     */
-    'first'?: string;
+    'block'?: boolean;
     /**
-    * The last name
+    * Renders the button with a bold font weight.
     */
-    'last'?: string;
+    'bold'?: boolean;
     /**
-    * The middle name
+    * If the button is in a busy active state.
     */
-    'middle'?: string;
+    'busy'?: boolean;
+    /**
+    * The color display of the button.
+    */
+    'color'?: Color;
+    /**
+    * If the button is disabled and cannot be interacted with.
+    */
+    'disabled'?: boolean;
+    /**
+    * The filled color style for the button. `solid` renders the button with a solid background. `outline` renders the button only as a border. `clear` is a transparent button.
+    */
+    'fill'?: 'outline' | 'solid' | 'clear';
+    /**
+    * Renders the button large.
+    */
+    'lg'?: boolean;
+    /**
+    * Renders the button as a text link.
+    */
+    'link'?: boolean;
+    /**
+    * Event emitted each time the button is clicked
+    */
+    'onTap'?: (event: CustomEvent<any>) => void;
+    /**
+    * The rendered shape of the button. `rounded` has a small border radius, `square` has no border radius and `pill` has the maximum border radius.
+    */
+    'shape'?: 'rounded' | 'square' | 'pill' | 'circle';
+    /**
+    * Renders the button small.
+    */
+    'sm'?: boolean;
+    /**
+    * Softened color palette of the button.
+    */
+    'soft'?: boolean;
+    /**
+    * The type of button to render
+    */
+    'type'?: 'submit' | 'button' | 'reset';
+    /**
+    * Renders the button extra large.
+    */
+    'xl'?: boolean;
   }
 
   interface IntrinsicElements {
     'card-stack': CardStack;
-    'my-component': MyComponent;
+    'launch-ui-button': LaunchUiButton;
   }
 }
 
@@ -86,7 +178,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'card-stack': LocalJSX.CardStack & JSXBase.HTMLAttributes<HTMLCardStackElement>;
-      'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+      'launch-ui-button': LocalJSX.LaunchUiButton & JSXBase.HTMLAttributes<HTMLLaunchUiButtonElement>;
     }
   }
 }

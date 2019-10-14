@@ -18,6 +18,12 @@ export namespace Components {
     */
     'cards': any[];
   }
+  interface IonAvatarGroup {
+    /**
+    * `true` if the avatar elements will animate apart.
+    */
+    'animated': boolean;
+  }
   interface LaunchUiButton {
     'alignCenter': boolean;
     'alignLeft': boolean;
@@ -92,6 +98,12 @@ declare global {
     new (): HTMLCardStackElement;
   };
 
+  interface HTMLIonAvatarGroupElement extends Components.IonAvatarGroup, HTMLStencilElement {}
+  var HTMLIonAvatarGroupElement: {
+    prototype: HTMLIonAvatarGroupElement;
+    new (): HTMLIonAvatarGroupElement;
+  };
+
   interface HTMLLaunchUiButtonElement extends Components.LaunchUiButton, HTMLStencilElement {}
   var HTMLLaunchUiButtonElement: {
     prototype: HTMLLaunchUiButtonElement;
@@ -100,6 +112,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'airbnb-homepage': HTMLAirbnbHomepageElement;
     'card-stack': HTMLCardStackElement;
+    'ion-avatar-group': HTMLIonAvatarGroupElement;
     'launch-ui-button': HTMLLaunchUiButtonElement;
   }
 }
@@ -111,6 +124,12 @@ declare namespace LocalJSX {
     * The collection of cards to render
     */
     'cards'?: any[];
+  }
+  interface IonAvatarGroup {
+    /**
+    * `true` if the avatar elements will animate apart.
+    */
+    'animated'?: boolean;
   }
   interface LaunchUiButton {
     'alignCenter'?: boolean;
@@ -177,6 +196,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'airbnb-homepage': AirbnbHomepage;
     'card-stack': CardStack;
+    'ion-avatar-group': IonAvatarGroup;
     'launch-ui-button': LaunchUiButton;
   }
 }
@@ -189,6 +209,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'airbnb-homepage': LocalJSX.AirbnbHomepage & JSXBase.HTMLAttributes<HTMLAirbnbHomepageElement>;
       'card-stack': LocalJSX.CardStack & JSXBase.HTMLAttributes<HTMLCardStackElement>;
+      'ion-avatar-group': LocalJSX.IonAvatarGroup & JSXBase.HTMLAttributes<HTMLIonAvatarGroupElement>;
       'launch-ui-button': LocalJSX.LaunchUiButton & JSXBase.HTMLAttributes<HTMLLaunchUiButtonElement>;
     }
   }

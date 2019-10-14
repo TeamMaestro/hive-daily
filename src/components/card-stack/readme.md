@@ -1,5 +1,7 @@
 # card-stack
 
+#### Day 1
+
 The card stack component is a simple example of how to display a group of elements on-top of each other. For design sake, we limit the maximum number of children than can render at a given time.
 
 ## Further Development

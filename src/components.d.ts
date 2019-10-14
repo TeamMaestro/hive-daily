@@ -11,6 +11,7 @@ import {
 } from './components/product-design/launch/color';
 
 export namespace Components {
+  interface AirbnbHomepage {}
   interface CardStack {
     /**
     * The collection of cards to render
@@ -79,6 +80,12 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLAirbnbHomepageElement extends Components.AirbnbHomepage, HTMLStencilElement {}
+  var HTMLAirbnbHomepageElement: {
+    prototype: HTMLAirbnbHomepageElement;
+    new (): HTMLAirbnbHomepageElement;
+  };
+
   interface HTMLCardStackElement extends Components.CardStack, HTMLStencilElement {}
   var HTMLCardStackElement: {
     prototype: HTMLCardStackElement;
@@ -91,12 +98,14 @@ declare global {
     new (): HTMLLaunchUiButtonElement;
   };
   interface HTMLElementTagNameMap {
+    'airbnb-homepage': HTMLAirbnbHomepageElement;
     'card-stack': HTMLCardStackElement;
     'launch-ui-button': HTMLLaunchUiButtonElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface AirbnbHomepage {}
   interface CardStack {
     /**
     * The collection of cards to render
@@ -166,6 +175,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'airbnb-homepage': AirbnbHomepage;
     'card-stack': CardStack;
     'launch-ui-button': LaunchUiButton;
   }
@@ -177,6 +187,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'airbnb-homepage': LocalJSX.AirbnbHomepage & JSXBase.HTMLAttributes<HTMLAirbnbHomepageElement>;
       'card-stack': LocalJSX.CardStack & JSXBase.HTMLAttributes<HTMLCardStackElement>;
       'launch-ui-button': LocalJSX.LaunchUiButton & JSXBase.HTMLAttributes<HTMLLaunchUiButtonElement>;
     }

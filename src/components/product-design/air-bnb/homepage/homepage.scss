@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700&display=swap');
+
+:host {
+    --color-primary: #FE5A5D;
+    --color-charcoal: #3F3F40;
+
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+@mixin link {
+    color: var(--color-charcoal);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.content {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+        height: 30px;
+    }
+    &-items {
+        list-style: none;
+        display: inline-flex;
+        li {
+            margin-right: 35px;
+        }
+        a {
+            @include link();
+            transition: all .2s ease-in;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.btn {
+    background: var(--color-primary);
+    color: white;
+    padding: 10px 15px;
+    appearance: none;
+    border-radius: 5px;
+    border-color: transparent;
+    box-sizing: border-box;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+}
+
+.main-content {
+    position: absolute;
+    top: 120px;
+    left: 140px;
+
+    .title {
+        font-size: 72px;
+        color: var(--color-charcoal);
+    }
+
+    .search-cta {
+        position: relative;
+        border: 2px solid var(--color-primary);
+        border-radius: 3px;
+        padding: 2px;
+        max-width: 485px;
+        display: flex;
+        align-items: center;
+        height: 60px;
+        box-sizing: border-box;
+        background: white;
+        input {
+            width: 100%;
+            appearance: none;
+            height: 100%;
+            border: 0;
+            min-height: 35px;
+            padding: 0 20px;
+        }
+        .placeholder {
+            @include link();
+            position: absolute;
+            left: 20px;
+            visibility: hidden;
+            transition: all .2s ease-in;
+            pointer-events: none;
+            .primary {
+                padding-left: 5px;
+            }
+            &.active {
+                visibility: visible;
+            }
+        }
+        .search-btn {
+            font-size: 24px;
+            border-radius: 0;
+        }
+    }
+}
+
+.bottom-content {
+    position: absolute;
+    bottom: 80px;
+    left: 140px;
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.side-cta {
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    a {
+        display: block;
+        transform: rotate(-90deg);
+        transition: all .2s ease-in;
+        &:hover {
+            text-decoration: underline;
+        }
+        @include link();
+    }
+}
+
+.bg-img {
+    background-image: url(https://i2.wp.com/www.awesomegreece.com/wp-content/uploads/2018/10/Blue-domed-church-along-caldera-edge-in-Oia-Santorini-greece-conde-nast-traveller-11aug17-iStock.jpg?w=1440&ssl=1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 800px;
+    background-repeat: no-repeat;
+    border-top-left-radius: 2em;
+    height: 590px;
+    background-size: cover;
+}
+
+.location-card {
+    width: 225px;
+    height: 150px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 100px rgba(0, 0, 0, .5),
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+
+    .location-title {
+        color: white;
+        font-size: 18px;
+        margin: 0;
+        padding-bottom: 10px;
+        .small {
+            font-size: 0.65em;
+        }
+    }
+    .stats {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-weight: bold;
+        font-size: 0.85em;
+    }
+}
+
+
+ion-slide {
+    width: auto!important;
+    &:nth-child(1) .location-card {
+        background-image: url('https://a0.muscache.com/im/pictures/75756707/5d76182c_original.jpg?aki_policy=large');
+    }
+    &:nth-child(2) .location-card {
+        background-image: url('https://lid.zoocdn.com/645/430/a8c6e852f31598a2ca1cd3f28c87fcb91736e07f.jpg');
+    }
+    &:nth-child(3) .location-card {
+        background-image: url('https://www.thepinnaclelist.com/wp-content/uploads/2014/08/001-Konstancin-Jeziorna-Luxury-Villa-Residence-Warsaw-Poland.jpg');
+    }
+    &:nth-child(4) .location-card {
+        background-image: url('https://www.croatialuxuryrent.com/uploads/images/villa-zvonimir-dalmatia-croatia-1639774385.jpg');
+    }
+}

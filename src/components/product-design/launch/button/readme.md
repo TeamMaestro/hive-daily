@@ -1,5 +1,7 @@
 # launch-ui-button
 
+#### Day 2
+
 A button element that exists in a product called Launch. This buttons mimics the native button's behavior to submit forms.
 
 <!-- Auto Generated Below -->

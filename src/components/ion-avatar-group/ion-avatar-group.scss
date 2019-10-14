@@ -1,0 +1,26 @@
+:host {
+    display: inline-flex;
+    line-height: 1;
+
+    ::slotted(*) {
+        width: 48px;
+        height: 48px;
+        border: 2px solid white;
+    }
+
+    ::slotted(*:not(:first-child)) {
+        margin-left: -1rem;
+    }
+}
+
+:host([animated]) {
+    ::slotted(*) {
+        transition: margin 0.15s ease-in-out;
+    }
+}
+
+:host([animated]:hover) {
+    ::slotted(*:not(:first-child)) {
+        margin-left: 0rem;
+    }
+}

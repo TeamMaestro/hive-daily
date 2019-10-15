@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
+
+:host {
+    --width: 60px;
+    --height: 300px;
+    --background-image: inherit;
+    --direction: column;
+    --writing-mode: vertical-rl;
+
+    width: var(--width);
+    height: var(--height);
+    margin: 15px;
+    background-size: auto 105%;
+    background-position: center;
+    border-radius: 40px;
+    background-image: var(--background-image);
+    font-family: 'Noto Sans' sans-serif;
+    transition: all .5s cubic-bezier(.02, .01, .5, 1);
+    position: relative;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    box-shadow: inset 0px 0px 100px rgba(0, 0, 0, .5),
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.categories-details {
+    display: flex;
+    flex-direction: var(--direction);
+    letter-spacing: 1px;
+}
+
+.info {
+    writing-mode: var(--writing-mode);
+    transform: rotate(180deg);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: #fff;
+    padding: 8px;
+    transition: transform .5s ease-out;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+:host(:hover) {
+    --width: 250px;
+    --direction: row;
+    --writing-mode: inherit;
+    background-size: auto 100%;
+    border-radius: 10px;
+    align-items: flex-start;
+
+    .icon {
+        order: 1;
+    }
+
+    .info {
+        transform: rotate(0deg);
+        order: 2;
+    }
+}

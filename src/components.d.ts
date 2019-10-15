@@ -18,6 +18,14 @@ export namespace Components {
     */
     'cards': any[];
   }
+  interface CategoriesList {}
+  interface CategoriesListItem {
+    'icon': string;
+    /**
+    * The source to render as the background image.
+    */
+    'src': string;
+  }
   interface IonAvatarGroup {
     /**
     * `true` if the avatar elements will animate apart.
@@ -98,6 +106,18 @@ declare global {
     new (): HTMLCardStackElement;
   };
 
+  interface HTMLCategoriesListElement extends Components.CategoriesList, HTMLStencilElement {}
+  var HTMLCategoriesListElement: {
+    prototype: HTMLCategoriesListElement;
+    new (): HTMLCategoriesListElement;
+  };
+
+  interface HTMLCategoriesListItemElement extends Components.CategoriesListItem, HTMLStencilElement {}
+  var HTMLCategoriesListItemElement: {
+    prototype: HTMLCategoriesListItemElement;
+    new (): HTMLCategoriesListItemElement;
+  };
+
   interface HTMLIonAvatarGroupElement extends Components.IonAvatarGroup, HTMLStencilElement {}
   var HTMLIonAvatarGroupElement: {
     prototype: HTMLIonAvatarGroupElement;
@@ -112,6 +132,8 @@ declare global {
   interface HTMLElementTagNameMap {
     'airbnb-homepage': HTMLAirbnbHomepageElement;
     'card-stack': HTMLCardStackElement;
+    'categories-list': HTMLCategoriesListElement;
+    'categories-list-item': HTMLCategoriesListItemElement;
     'ion-avatar-group': HTMLIonAvatarGroupElement;
     'launch-ui-button': HTMLLaunchUiButtonElement;
   }
@@ -124,6 +146,14 @@ declare namespace LocalJSX {
     * The collection of cards to render
     */
     'cards'?: any[];
+  }
+  interface CategoriesList {}
+  interface CategoriesListItem {
+    'icon'?: string;
+    /**
+    * The source to render as the background image.
+    */
+    'src'?: string;
   }
   interface IonAvatarGroup {
     /**
@@ -196,6 +226,8 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'airbnb-homepage': AirbnbHomepage;
     'card-stack': CardStack;
+    'categories-list': CategoriesList;
+    'categories-list-item': CategoriesListItem;
     'ion-avatar-group': IonAvatarGroup;
     'launch-ui-button': LaunchUiButton;
   }
@@ -209,6 +241,8 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'airbnb-homepage': LocalJSX.AirbnbHomepage & JSXBase.HTMLAttributes<HTMLAirbnbHomepageElement>;
       'card-stack': LocalJSX.CardStack & JSXBase.HTMLAttributes<HTMLCardStackElement>;
+      'categories-list': LocalJSX.CategoriesList & JSXBase.HTMLAttributes<HTMLCategoriesListElement>;
+      'categories-list-item': LocalJSX.CategoriesListItem & JSXBase.HTMLAttributes<HTMLCategoriesListItemElement>;
       'ion-avatar-group': LocalJSX.IonAvatarGroup & JSXBase.HTMLAttributes<HTMLIonAvatarGroupElement>;
       'launch-ui-button': LocalJSX.LaunchUiButton & JSXBase.HTMLAttributes<HTMLLaunchUiButtonElement>;
     }

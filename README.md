@@ -6,7 +6,7 @@
 
 Daily contributions of open source components, concepts and experiences.
 
-#### [Live Site](https://nifty-pike-fdcfc8.netlify.com)
+#### [Live Site](https://daily.teamhive.com)
 
 ### What is Hive Daily?
 

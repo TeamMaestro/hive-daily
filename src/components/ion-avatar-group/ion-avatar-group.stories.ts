@@ -47,9 +47,3 @@ storiesOf('Components|Ion Avatar Group', module)
             </ion-avatar-group>
         </div>
     `);
-
-/*
-<ion-avatar src="https://thispersondoesnotexist.com/image">Sean Perkins</ion-avatar>
-        <ion-avatar src="https://thispersondoesnotexist.com/image">Sean Perkins</ion-avatar>
-        <ion-avatar src="https://thispersondoesnotexist.com/image">Sean Perkins</ion-avatar>
-        <ion-avatar src="https://thispersondoesnotexist.com/image">Sean Perkins</ion-avatar>*/

@@ -89,6 +89,24 @@ export namespace Components {
     */
     'xl': boolean;
   }
+  interface ProgressRing {
+    /**
+    * The foreground color of the ring as it fills.
+    */
+    'circleClass': string;
+    /**
+    * The progress percentage to whole for the progress ring.
+    */
+    'progress': number;
+    /**
+    * The radius of the ring in pixels.
+    */
+    'radius': number;
+    /**
+    * The stroke width of the progress ring.
+    */
+    'stroke': number;
+  }
 }
 
 declare global {
@@ -129,6 +147,12 @@ declare global {
     prototype: HTMLLaunchUiButtonElement;
     new (): HTMLLaunchUiButtonElement;
   };
+
+  interface HTMLProgressRingElement extends Components.ProgressRing, HTMLStencilElement {}
+  var HTMLProgressRingElement: {
+    prototype: HTMLProgressRingElement;
+    new (): HTMLProgressRingElement;
+  };
   interface HTMLElementTagNameMap {
     'airbnb-homepage': HTMLAirbnbHomepageElement;
     'card-stack': HTMLCardStackElement;
@@ -136,6 +160,7 @@ declare global {
     'categories-list-item': HTMLCategoriesListItemElement;
     'ion-avatar-group': HTMLIonAvatarGroupElement;
     'launch-ui-button': HTMLLaunchUiButtonElement;
+    'progress-ring': HTMLProgressRingElement;
   }
 }
 
@@ -222,6 +247,24 @@ declare namespace LocalJSX {
     */
     'xl'?: boolean;
   }
+  interface ProgressRing {
+    /**
+    * The foreground color of the ring as it fills.
+    */
+    'circleClass'?: string;
+    /**
+    * The progress percentage to whole for the progress ring.
+    */
+    'progress'?: number;
+    /**
+    * The radius of the ring in pixels.
+    */
+    'radius'?: number;
+    /**
+    * The stroke width of the progress ring.
+    */
+    'stroke'?: number;
+  }
 
   interface IntrinsicElements {
     'airbnb-homepage': AirbnbHomepage;
@@ -230,6 +273,7 @@ declare namespace LocalJSX {
     'categories-list-item': CategoriesListItem;
     'ion-avatar-group': IonAvatarGroup;
     'launch-ui-button': LaunchUiButton;
+    'progress-ring': ProgressRing;
   }
 }
 
@@ -245,6 +289,7 @@ declare module "@stencil/core" {
       'categories-list-item': LocalJSX.CategoriesListItem & JSXBase.HTMLAttributes<HTMLCategoriesListItemElement>;
       'ion-avatar-group': LocalJSX.IonAvatarGroup & JSXBase.HTMLAttributes<HTMLIonAvatarGroupElement>;
       'launch-ui-button': LocalJSX.LaunchUiButton & JSXBase.HTMLAttributes<HTMLLaunchUiButtonElement>;
+      'progress-ring': LocalJSX.ProgressRing & JSXBase.HTMLAttributes<HTMLProgressRingElement>;
     }
   }
 }

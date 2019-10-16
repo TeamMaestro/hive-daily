@@ -1,0 +1,25 @@
+// Progress Ring
+// --------------------------------------------------
+:host {
+    --opacity: 1;
+}
+
+svg {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity, stroke-dashoffset 0.35s;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+
+        &.path {
+            opacity: var(--opacity);
+        }
+    }
+}
+
